@@ -1,4 +1,5 @@
 import 'package:coffe_shop/CustomWidgets/custom_elevated_button.dart';
+import 'package:coffe_shop/screens/home.dart';
 import 'package:coffe_shop/utils/AppColors.dart';
 import 'package:coffe_shop/utils/AppStyles.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,8 @@ class OnBoarding extends StatelessWidget {
             child: SizedBox(
               height: 0.65.sh,
               width: 1.sw,
-              child: Image.asset("assets/onboarding.png", fit: BoxFit.cover),
+              child: Image.asset(
+                  "assets/images/onboarding.png", fit: BoxFit.cover),
             ),
           ),
           // Gradient for smooth transition
@@ -61,7 +63,10 @@ class OnBoarding extends StatelessWidget {
                   style: AppStyles.regular14LightGrey,
                 ),
                 SizedBox(height: 32.h),
-                CustomElevatedButton(text: "Get Started", onPressed: () {}),
+                CustomElevatedButton(text: "Get Started", onPressed: () {
+                  Navigator.pushReplacement(
+                      context, MaterialPageRoute(builder: (context) => Home()));
+                }),
                 SizedBox(height: 54.h),
               ],
             ),
