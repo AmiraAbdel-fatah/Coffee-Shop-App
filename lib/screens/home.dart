@@ -1,4 +1,5 @@
 import 'package:coffe_shop/CustomWidgets/coffee_item_card.dart';
+import 'package:coffe_shop/screens/detail_screen.dart';
 import 'package:coffe_shop/utils/AppColors.dart';
 import 'package:coffe_shop/utils/AppStyles.dart';
 import 'package:flutter/material.dart';
@@ -242,12 +243,22 @@ class _HomeState extends State<Home> {
       itemCount: _coffeeItems.length,
       itemBuilder: (context, index) {
         final item = _coffeeItems[index];
-        return CoffeeItemCard(
-          image: item["image"],
-          name: item["name"],
-          type: item["type"],
-          price: item["price"],
-          rating: item["rating"],
+        return GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DetailScreen(item: item),
+              ),
+            );
+          },
+          child: CoffeeItemCard(
+            image: item["image"],
+            name: item["name"],
+            type: item["type"],
+            price: item["price"],
+            rating: item["rating"],
+          ),
         );
       },
     );
